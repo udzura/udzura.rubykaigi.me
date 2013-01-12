@@ -4,6 +4,7 @@ date: 2013-01-12
 type: article
 tags: news
 pageable: true
+author: Uchio Kondo
 ---
 
 #### なんてこった

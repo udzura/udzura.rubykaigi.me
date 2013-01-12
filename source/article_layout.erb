@@ -19,8 +19,8 @@
 
 		<h4>記事の情報</h4>
 		<ul class="disc">
-			<li><strong>作者</strong>:<br /><%= data.page.author || "Admin" %></li>
-			<li><strong>更新日</strong>:<br /><%= get_date.try(:strftime, '%Y/%m/%d, %H:%M:%S') || "Unknown" %></li>
+			<li><i class="foundicon-smiley"> </i><strong>作者</strong>:<br /><%= data.page.author || "Admin" %></li>
+			<li><i class="foundicon-clock"> </i><strong>更新日</strong>:<br /><%= get_date.try(:strftime, '%Y/%m/%d, %H:%M:%S') || "Unknown" %></li>
 		</ul>
 	</div>
 
