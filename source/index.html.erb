@@ -1,17 +1,63 @@
 ---
-title: Welcome to うづらルビーカイギ
+title: うづらルビーカイギ
+description: Yet Another RubyKaigi
+pageable: true
+
 ---
 
-<div class="welcome">
-  <h1>うづらルビーカイギ</h1>
-  <div class="contents">
-    <ul>
-      <li>日時：2013年４月吉日</li>
-      <li>場所：池袋近辺</li>
-      <li>コンテンツ：うづら　他　Coming Soon!</li>
-    </ul>
-  </div>
-  <p class="doc">
-    <%= link_to "See also doorkeeper", "http://udzura.doorkeeper.jp/events/2395" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+<div class="row">
+	<div class="eight columns">
+		<% blog.articles[0..4].each do |article| %>
+		<h3><a href="<%= article.url %>"><%= article.title %></a></h3>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="panel">
+				<%= article.summary %>
+				<p><a href="<%= article.url %>">続きを読む…</a></p>
+				</div>
+			</div>
+		</div>
+		<% end %>
+
+<!--
+			<h3>Tabs</h3>
+			<dl class="tabs">
+				<dd class="active"><a href="#simple1">Simple Tab 1</a></dd>
+				<dd><a href="#simple2">Simple Tab 2</a></dd>
+				<dd><a href="#simple3">Simple Tab 3</a></dd>
+			</dl>
+
+			<ul class="tabs-content">
+				<li class="active" id="simple1Tab">This is simple tab 1's content. Pretty neat, huh?</li>
+				<li id="simple2Tab">This is simple tab 2's content. Now you see it!</li>
+				<li id="simple3Tab">This is simple tab 3's content. It's, you know...okay.</li>
+			</ul>
+
+			<h3>Buttons</h3>
+
+      <div class="row">
+        <div class="six columns">
+          <p><a href="#" class="small button">Small Button</a></p>
+          <p><a href="#" class="button">Medium Button</a></p>
+          <p><a href="#" class="large button">Large Button</a></p>
+        </div>
+        <div class="six columns">
+          <p><a href="#" class="small alert button">Small Alert Button</a></p>
+          <p><a href="#" class="success button">Medium Success Button</a></p>
+          <p><a href="#" class="large secondary button">Large Secondary Button</a></p>
+        </div>
+      </div>
+-->
+	</div>
+
+	<div class="four columns">
+		<h4>うづらルビーカイギって?</h4>
+		<p>うづらがみんなに伝えたいこと(あるいはコンテンツ)を語るカイギらしいですが、よくわかりません。</p>
+
+		<h4>詳細情報</h4>
+		<ul class="disc">
+			<li><strong>日時</strong>:<br />2013年4月吉日予定</li>
+			<li><strong>場所</strong>:<br />池袋某所、見つかんない時は渋谷などになります</li>
+		</ul>
+	</div>
+</div>

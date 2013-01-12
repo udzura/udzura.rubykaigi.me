@@ -1,0 +1,28 @@
+<% # -*- coding: utf-8 -*- %>
+<% wrap_layout :layout do %>
+<div class="row">
+	<div class="eight columns">
+		<h3><%= data.page.title %></h3>
+		<%= yield %>
+	</div>
+
+	<div class="four columns">
+		<h4>Navigations</h4>
+		<ul class="disc">
+			<% if prev_page = prev_page() %>
+			<li>前の記事は、<%= link_to h(prev_page.title), "/#{prev_page.path}" %>です。</li>
+			<% end %>
+			<% if next_page = next_page() %>
+			<li>次の記事は、<%= link_to h(next_page.title), "/#{next_page.path}" %>です。</li>
+			<% end %>
+		</ul>
+
+		<h4>記事の情報</h4>
+		<ul class="disc">
+			<li><strong>作者</strong>:<br /><%= data.page.author || "Admin" %></li>
+			<li><strong>更新日</strong>:<br /><%= get_date.try(:strftime, '%Y/%m/%d, %H:%M:%S') || "Unknown" %></li>
+		</ul>
+	</div>
+
+</div>
+<% end %>

@@ -1,0 +1,117 @@
+# -*- coding: utf-8 -*-
+---
+pageable: true
+per_page: 4
+---
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Set the viewport width to device width for mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>うづらルビーカイギ - <%= data.page.title || "Top" %></title>
+
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="/stylesheets/app.css">
+
+	<script src="/javascripts/foundation/modernizr.foundation.js"></script>
+</head>
+<body>
+
+	<div class="row">
+		<div class="twelve columns">
+			<h2><a href="/">うづらルビーカイギ</a></h2>
+			<p>Yet Another RubyKaigi</p>
+			<hr />
+		</div>
+	</div>
+
+	<div id="main" role="main" class="row">
+		<%= yield %>
+	</div>
+
+	<div class="row navigations">
+		<hr />
+		<div class="four columns">
+			<h2>Recent Articles</h2>
+			<ol>
+			<% blog.articles[0...10].each do |article| %>
+				<li><a href="<%= article.url %>"><%= article.title[0..11] %>...</a> <span><%= get_date(article).try :strftime, '%b %e' %></span></li>
+			<% end %>
+			</ol>
+		</div>
+		<div class="four columns">
+			<h2>Tags</h2>
+			<ol>
+			<% blog.tags.each do |tag, articles| %>
+				<li><a href="<%= tag_path tag %>"><%= tag %> (<%= articles.size %>)</a></li>
+			<% end %>
+			</ol>
+		</div>
+		<div class="four columns">
+			<h2>By Year</h2>
+			<ol>
+			<% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
+				<li><a href="<%= blog_year_path year %>"><%= year %> (<%= articles.size %>)</a></li>
+			<% end %>
+			</ol>
+		</div>
+	</div>
+
+	<div class="row powered-by">
+		<div class="twelve columns"><p>
+			Powered by
+			<a href="http://middlemanapp.com/">Middleman</a> (version <code><%= Middleman::VERSION %></code>)
+			and
+			<a href="http://foundation.zurb.com/">Foundation</a> (version <code><%= Foundation::VERSION %></code>)
+		</p></div>
+	</div>
+	<!-- Included JS Files (Uncompressed) -->
+	<script src="/javascripts/foundation/jquery.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.cookie.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.event.move.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.event.swipe.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.accordion.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.alerts.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.buttons.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.clearing.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.forms.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.joyride.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.magellan.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.mediaQueryToggle.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.navigation.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.orbit.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.reveal.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.tabs.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.tooltips.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.foundation.topbar.js"></script>
+	
+	<script src="/javascripts/foundation/jquery.placeholder.js"></script>
+
+  <!-- Application Javascript, safe to override -->
+  <script src="/javascripts/foundation/app.js"></script>
+</body>
+</html>
